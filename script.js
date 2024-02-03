@@ -46,23 +46,43 @@ class UI{
                         <i class="fas fa-shopping-cart">Add to cart</i>
                     </button>
                 </div>
-                <h3>Bracelet</h3>
-                <h4>$4</h4>
+                <h3>${product.title}</h3>
+                <h4>$${product.price}</h4>
             </article>
-                <!-- end of single product -->`
-        })
+                <!-- end of single product -->`;
+        });
+        productsDOM.innerHTML = result;
     }
+    getBagButtons(){
+        const buttons = [...document.querySelectorAll('.bag-btn')];
+        buttons.forEach(button =>{
+            let id = button.dataset.id;
+            let inCart = cart.find(item => item.id === id);
+            if(){
+                 
+            }
+        })
+    };
+
 }
 //local storage
 class Storage{
+    static saveProducts(products){
+        localStorage.setItem("products", JSON.stringify(products));
 
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI();
     const products = new Products();
     //get all products;
-    products.getProducts().then(products => ui.displayProducts(products));
+    products.getProducts().then(products => {
+    ui.displayProducts(products);
+    Storage.saveProducts(products);
+    }).then(() => {
+        ui.getBagButtons();
+    });
 })
 
 //1.21
