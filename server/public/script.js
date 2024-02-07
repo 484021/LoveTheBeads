@@ -171,7 +171,7 @@ class UI{
                         if (res.ok) return res.json()
                         return res.json().then(json => Promise.reject(json))
                     }).then (({ url }) => {
-                    // window.location = url
+                    window.location = url
                     console.log(url);
                 }).catch(e => {
                     console.error(e.error)
