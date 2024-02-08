@@ -19,7 +19,6 @@ body {
   color: var(--mainBlack);
   background: var(--mainWhite);
   font-family: "Lato", sans-serif;
-  text-align: center;
 }
 /* --------------- Navbar ---------------- */
 .navbar {

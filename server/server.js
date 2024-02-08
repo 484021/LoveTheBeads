@@ -7,14 +7,15 @@ app.use(express.static('public'))
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
-const storeItems = new Map([
-    ['4ezRkfPEz8oOD43W6fcnEJ', { priceInCents: 500, name: "Traditional Beaded bracelets"}],
-    ['5nKv8luacAlaNwa0kfgc28', { priceInCents: 500, name: "Purple Jade bracelet"}],
-    ['2EMQ1w61Zubqj9AAHQqHJa', { priceInCents: 500, name: "Orange Themed waistbead"}],
-    ['vqs8wXQepCHEbqj1VCx7e', { priceInCents: 500, name: "Moon Phase Crystal bracelet"}],
-    ['11PqxTLcwMIyxlgSy66FIA', { priceInCents: 500, name: "Clear Glass Rondelle bracelet"}]
+
+ const storeItems = new Map([
+     ['4ezRkfPEz8oOD43W6fcnEJ', { priceInCents: 500, name: "Traditional Beaded bracelets"}],
+     ['5nKv8luacAlaNwa0kfgc28', { priceInCents: 500, name: "Purple Jade bracelet"}],
+     ['2EMQ1w61Zubqj9AAHQqHJa', { priceInCents: 500, name: "Orange Themed waistbead"}],
+     ['vqs8wXQepCHEbqj1VCx7e', { priceInCents: 500, name: "Moon Phase Crystal bracelet"}],
+     ['11PqxTLcwMIyxlgSy66FIA', { priceInCents: 500, name: "Clear Glass Rondelle bracelet"}]
     
-])
+ ])
 app.post("/create-checkout-session", async (req, res) => {
     try{
         const session = await stripe.checkout.sessions.create({
