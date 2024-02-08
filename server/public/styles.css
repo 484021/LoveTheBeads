@@ -9,6 +9,9 @@
   --mainSpacing: 0.1rem;
   --mainTransition: all 0.3s linear;
 }
+.fa-home{
+  color: var(--mainBlack)
+}
 * {
   margin: 0;
   padding: 0;
