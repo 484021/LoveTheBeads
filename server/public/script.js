@@ -178,7 +178,7 @@ class UI{
                     window.location = url
                     console.log(url);
                 }).catch(e => {
-                    console.error(e.error)
+                    console.log(e.error)
                 })
             })
         
